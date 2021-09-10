@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+   
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/students">Students </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/courses">Courses</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item"routerLink="/manage/students">Manage Students</a>
+             
+              
+            </div>
+      </li>
+      <li class="nav-item dropdown" *ngIf="auth.userData | async as userData" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Welcome {{ userData.displayName }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="signOut()" >Logout</a>
+        </div>
+      </li>
+    </ul>
+  
+</nav>

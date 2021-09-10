@@ -1,0 +1,77 @@
+<div class="bg-img">
+ 
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+      
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+         <li class="nav-item">
+          <a class="nav-link active" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" id="pills-register-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div 
+        class="tab-pane fade show active" 
+        id="pills-login"
+        role="tabpanel" 
+        aria-labelledby="pills-login-tab"
+        >
+        <div>
+          <img src="../../assets/images/img_avatar1.png" alt="Avatar" class="avatar">
+        </div>
+       
+          <div class="form-group">
+            <label for="email">Email Address</label><span class="asterisk">*</span>
+            <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email" name="email" required>
+            
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password</label> <span class="asterisk">*</span>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" required>
+           
+          </div>
+          <button (click)="signIn()" id="login"class="btn btn-success" [disabled]="!email || !password" >Login</button>
+
+       
+          
+          <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+        </div>
+      
+      <div
+      class="tab-pane fade"
+      id="pills-register" 
+      role="tabpanel" 
+      aria-labelledby="pills-register-tab"
+      >
+      <div>
+        <img src="../../assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="form-group">
+        <label for="name">Username</label><span class="asterisk">*</span>
+        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Username">
+        
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label><span class="asterisk">*</span>
+        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email">
+        
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password</label><span class="asterisk">*</span>
+        <input type="password" class="form-control" [(ngModel)]="password" id="pwd" placeholder="Password">
+        
+      </div>
+      <button  [disabled]="!username || !email || !password" (click)="signUp()" id="register" class="btn btn-info">Sign Up</button>
+     
+      <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+    </div>
+  </div>
+
+</div>
+  </div>
+  </div>
+  
+  </div>

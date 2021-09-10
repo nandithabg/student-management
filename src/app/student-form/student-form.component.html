@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Add Student</h3>
+            <form #f="ngForm" (ngSubmit)="save(f.value)">
+                <div class="form-group">
+                  <label for="fullname">Full Name</label>
+                  <input #fullname= "ngModel" [(ngModel)]="student.fullname" name="fullname" type="text" class="form-control" id="fullname" required >
+                  <div class="alert alert-danger" *ngIf="fullname.touched && fullname.invalid">
+                      Name is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="id">Student ID</label>
+                    <input #stuId="ngModel" [(ngModel)]="student.stuId" name="stuId" type="text" class="form-control" id="stuId" required>
+                    <div class="alert alert-danger" *ngIf="stuId.touched && stuId.invalid">
+                        Student ID is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input #email="ngModel" [(ngModel)]="student.email" name="email" type="email" class="form-control" id="email" required>
+                    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                        Email is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dept">Department</label>
+                    <input #dept="ngModel" [(ngModel)]="student.dept" name="dept" type="text" class="form-control" id="dept" required>
+                    <div class="alert alert-danger" *ngIf="dept.touched && dept.invalid">
+                        Department is required.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="semester">Semester</label>
+                    <input #sem="ngModel" [(ngModel)]="student.sem" name="sem" type="text" class="form-control" id="sem" required>
+                    <div class="alert alert-danger" *ngIf="sem.touched && sem.invalid">
+                        Semester is required.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="imgUrl">Image URL</label>
+                    <input #imgUrl="ngModel" [(ngModel)]="student.imgUrl" name="imgUrl" type="text" class="form-control" id="imgUrl" required>
+                    <div class="alert alert-danger" *ngIf="imgUrl.touched && imgUrl.invalid">
+                        Image URL is required.
+                    </div>
+                  </div>
+            
+                <button  class="btn btn-success">Save</button>
+                <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+              </form>
+        </div>
+        <div class="col-6">
+            <div class="card" style="width: 18rem;">
+                <div class="center"><h5>Student Details</h5></div>
+                
+                <img class="card-img-top" [src]="imgUrl.value" *ngIf="imgUrl.value">
+                <div class="card-body">
+                  <h5 class="card-title">{{fullname.value}}</h5>
+                  <p>{{stuId.value}}</p>
+                  <p>{{sem.value}}</p>
+                  
+                </div>
+              </div>
+
+        </div>
+    </div>
+</div>
+

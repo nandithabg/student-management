@@ -1,0 +1,39 @@
+<navbar></navbar>
+<div class="container">
+    <p>
+        <a routerLink="/manage/students/new" class="btn btn-success">Add Students</a>
+
+    </p>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Fullname</th>
+            <th>Student ID</th>
+            <th>Semester</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let s of student$ | async">
+                <tr >
+                    <td>{{s.value.fullname}}</td> 
+                    <td>{{s.value.stuId}}</td>
+                    <td>{{s.value.sem}}</td>
+                    <td>
+                        <a [routerLink]="['/manage/students',s.key]">Edit Student Info</a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/manage/course',s.key]" class= "btn btn-info">Add/Edit Course</a>
+                    </td>
+                  </tr>
+                 
+
+            </ng-container>
+         
+        </tbody>
+      </table>
+</div>
+
+

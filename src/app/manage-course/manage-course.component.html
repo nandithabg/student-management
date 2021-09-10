@@ -1,0 +1,71 @@
+<navbar></navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3>Add Student</h3>
+            <form #f="ngForm" (ngSubmit)="save(f.value)">
+                <div class="form-group">
+                  <label for="fullname">Course Name</label>
+                  <input  #cname="ngModel" [(ngModel)]="course.cname" name="cname" type="text" class="form-control" id="cname" required >
+                  <div class="alert alert-danger" *ngIf="cname.touched && cname.invalid">
+                      Course Name is required.
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="id">Course ID</label>
+                    <input #cId="ngModel" [(ngModel)]="course.cId" name="cId" type="text" class="form-control" id="cId" required>
+                    <div class="alert alert-danger" *ngIf="cId.touched && cId.invalid">
+                        Course ID is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="credit">Credit</label>
+                    <input #credit="ngModel" [(ngModel)]="course.credit" name="credit" type="text" class="form-control" id="credit" required>
+                    <div class="alert alert-danger" *ngIf="credit.touched && credit.invalid">
+                        Credit is required.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade</label>
+                    <input #grade="ngModel" [(ngModel)]="course.grade" name="grade" type="text" class="form-control" id="grade" required>
+                    <div class="alert alert-danger" *ngIf="grade.touched && grade.invalid">
+                        Grade is required.
+                    </div>
+                  </div>
+                <button class="btn btn-success">Add</button>
+                
+                <button *ngIf="courseId" (click)="delete()" type="button" class="btn btn-danger">Delete</button>
+              </form>
+        </div>
+        <div class="col-6">
+            <h3>Edit Courses</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Course ID</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                        <tr *ngFor="let c of course$ | async">
+                            <td>{{c.value.cname}}</td> 
+                            <td>{{c.value.cId}}</td>
+                            <td>
+                                
+                                <a class="btn btn-info" (click)="edit(c.key)">Edit</a>
+                            </td>
+                           
+                          </tr>
+                         
+        
+                 
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+</div>
+    

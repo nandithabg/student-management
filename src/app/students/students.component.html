@@ -1,0 +1,51 @@
+
+<navbar></navbar>
+
+  <div class="container">
+     <ng-container *ngFor="let s of stu |async ">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card" id="card">
+
+            <div class="row">
+
+              <div class="col-md-4">
+                <div class="card " id="image-card">
+                  <img class="card-img-top" [src]="s.imgUrl" *ngIf="s.imgUrl">
+                </div>
+              </div>
+              
+              <div class="col-md-8">
+                <div class="card border-0" id="info-card">
+                  <h4 class="card-title">{{ s.fullname}}</h4>
+                    <div class="float-left">
+                      <p>ID : {{s.stuId}}</p>
+                      <p ><li></li></p>
+                      <p>Email : {{s.email}}</p>
+                    </div>
+                     <div class="float-left">
+                      <p>Department : {{s.dept}}</p>
+                      <p ><li></li></p>
+                      <p>Semester : {{s.sem}}</p>
+                    </div>
+                 
+                  
+                  <h5 class="card-title">Course Grades</h5>
+                 
+                    <div *ngFor=" let c of generateArray(s.courses)">
+                      <div class="float-left">
+                        <p>{{c.value.cname}}</p>
+                        <p>{{c.value.grade}}</p>
+                      </div>
+                    </div>
+                 
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  
